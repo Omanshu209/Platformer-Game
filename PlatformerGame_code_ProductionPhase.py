@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 
-win = pygame.display.set_mode((1000,700))
+win = pygame.display.set_mode((1200,770))
 
 pygame.display.set_caption("Game!")
 
