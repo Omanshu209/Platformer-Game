@@ -164,7 +164,67 @@ class enemy(object):
             self.visible = False
         print('hit')
 
+class dog:
+	DogLeft=[pygame.transform.scale(pygame.image.load('dogl1.png'),(40,35)),pygame.transform.scale(pygame.image.load('dogl2.png'),(40,35)),pygame.transform.scale(pygame.image.load('dogl3.png'),(40,35))]
+	DogRight=[pygame.transform.scale(pygame.image.load('dogr1.png'),(40,35)),pygame.transform.scale(pygame.image.load('dogr2.png'),(40,35)),pygame.transform.scale(pygame.image.load('dogr3.png'),(40,35))]
+	DogSit=pygame.transform.scale(pygame.image.load('dogsit.png'),(40,35))
+	def __init__(self,active, x, y, width, height,plocx,plocy,end):
+	    if active:
+	       self.x=plocx-50 
+	       self.y=plocy 
+	    else:
+	       self.x = x
+	       self.y = y 
+	    self.plocx=plocx 
+	    self.plocy=plocy
+	    self.width = width
+	    self.height = height 
+	    self.end=end
+	    self.path = [self.x, self.end]
+	    self.walkCount = 0
+	    self.vel = 3
+	    self.hitbox = (self.x + 17, self.y + 2, 31, 57)
+	    self.health = 10
+	    self.visible = True 
+	    self.active=active
+	    self.dir=0
+	def draw(self,win,active,plocx2,plocy2,left,right,x,y):
+	    self.active=active
+	    if self.active:
+	        if self.walkCount + 1 >= 33:
+	        	self.walkCount = 0
+	        if left:
+	            win.blit(self.DogLeft[self.walkCount //11], (plocx2+50,plocy2+30))
+	            self.walkCount += 1
+	            self.dir=1
+	        elif right:
+	            win.blit(self.DogRight[self.walkCount //11], (plocx2-30, plocy2+30))
+	            self.walkCount += 1
+	            self.dir=2
+	        else:
+	        	if self.dir==1:
+	        		win.blit(self.DogSit,(plocx2+50,plocy2+30))
+	        	elif self.dir==2:
+	        		win.blit(self.DogSit,(plocx2-30,plocy2+30))
+	    else:
+	        win.blit(self.DogSit,(x,y))
 
+#    def move(self):
+#        if self.active:
+#	        if self.vel > 0:
+#	            if self.x + self.vel < self.path[1]:
+#	                self.x =plocx-50
+#	            else:
+#	                self.vel = self.vel * -1
+#	                self.walkCount = 0
+#	        else:
+#	            if self.x - self.vel > self.path[0]:
+#	                self.x =plocx-50
+#	            else:
+#	                self.vel = self.vel * -1
+#	                self.walkCount = 0
+#	    else:
+#	    	win.blit(DogSit,(self.x,self.y))
 class text:
 	def __init__(self,nameA,size,nameB,word,colour,posX,posY):
 		self.nameA=pygame.font.SysFont("comicsans",size,True)
@@ -173,9 +233,13 @@ class text:
 
 level=0
 score=0
+dogx=150
+dogy=200
 fall=False
+pets=False
 def DrawGameWindow():
-	global level,fall,left,right
+	global level,fall,left,right,pets
+	win.fill((255,255,255))
 	pygame.draw.rect(win,(0,255,0),(5,0,1257,720),3)
 	pygame.draw.rect(win,(0,0,255),(1005,0,250,700),10)
 	pygame.draw.rect(win,(255,0,0),(1015,10,230,50))
@@ -357,10 +421,108 @@ def DrawGameWindow():
 			
 	elif level==5:
 		win.blit(bgA,(0,0))
-			    
+		win.blit(p1A,(840,450))
+		win.blit(blockM,(0,650))
+		win.blit(blockM,(50,650))
+		win.blit(blockM,(100,650))
+		win.blit(blockM,(150,650))
+		win.blit(blockM,(200,650))
+		win.blit(blockM,(0,450))
+		win.blit(blockM,(50,450))
+		win.blit(blockM,(100,450))
+		win.blit(blockM,(150,450))
+		win.blit(blockM,(200,450))
+		win.blit(blockM,(0,500))
+		win.blit(blockM,(50,500))
+		win.blit(blockM,(100,500))
+		win.blit(blockM,(150,500))
+		win.blit(blockM,(200,500))
+		win.blit(blockM,(0,450))
+		win.blit(blockM,(50,450))
+		win.blit(blockM,(100,450))
+		win.blit(blockM,(150,450))
+		win.blit(blockM,(200,450))
+		win.blit(blockM,(0,400))
+		win.blit(blockM,(50,400))
+		win.blit(blockM,(100,400))
+		win.blit(blockM,(150,400))
+		win.blit(blockM,(200,400))
+		win.blit(blockM,(0,800))
+		win.blit(blockM,(50,800))
+		win.blit(blockM,(100,800))
+		win.blit(blockM,(150,800))
+		win.blit(blockM,(200,800))
+		win.blit(blockM,(0,350))
+		win.blit(blockM,(50,350))
+		win.blit(blockM,(100,350))
+		win.blit(blockM,(150,350))
+		win.blit(blockM,(200,350))
+		win.blit(blockM,(0,300))
+		win.blit(blockM,(50,300))
+		win.blit(blockM,(100,300))
+		win.blit(blockM,(150,300))
+		win.blit(blockM,(200,300))
+		win.blit(blockM,(0,600))
+		win.blit(blockM,(0,550))
+		win.blit(blockM,(50,600))
+		win.blit(blockM,(50,550))
+		win.blit(blockM,(100,600))
+		win.blit(blockM,(100,550))
+		win.blit(blockM,(150,600))
+		win.blit(blockM,(150,550))
+		win.blit(blockM,(200,600))
+		win.blit(blockM,(200,550))
+		win.blit(blockM,(345,650))
+		win.blit(blockM,(395,650))
+		win.blit(blockM,(345,600))
+		win.blit(blockM,(345,550))
+		win.blit(blockM,(395,600))
+		win.blit(blockM,(395,550))
+		win.blit(blockM,(540,650))
+		win.blit(blockM,(540,600))
+		win.blit(blockM,(540,550))
+		win.blit(blockM,(685,650))
+		win.blit(blockM,(685,600))
+		win.blit(blockM,(685,550))
+		win.blit(blockM,(735,650))
+		win.blit(blockM,(735,600))
+		win.blit(blockM,(735,550))
+		win.blit(blockM,(785,650))
+		win.blit(blockM,(785,600))
+		win.blit(blockM,(785,550))
+		win.blit(blockM,(835,650))
+		win.blit(blockM,(835,600))
+		win.blit(block2M,(835,550))
+		man.draw(win)
+		if man.x>220 and man.y<241 and man.y>219 and man.x<310:
+			fall=True
+		elif man.x>425 and man.y<700 and man.y>489 and man.x<505:
+			fall=True
+		elif man.x>570 and man.y<700 and man.y>489 and man.x<650:
+			fall=True
+		elif man.x>860 and man.y<700 and man.y>489 and man.x<1000:
+			fall=True 
+		else:
+			fall=False
+			if man.isJump==False and man.x<=220:
+				man.y=240
+			elif man.isJump==False and man.x>=310 and man.x<=425:
+				man.y=490
+		if man.x>800 and man.y<600 and man.y>489 and man.x<860:
+			pygame.quit()
+			man.x=10
+			left=False 
+			right=False
+		for bullet in bullets:
+			if level==5:
+			    bullet.draw(win)
+		pet.draw(win,pets,man.x,man.y,man.left,man.right,400,520)
+		if man.x>360 and man.y==490 and man.isJump==False:
+			pets=True 
 	pygame.display.update()
 
 man = player(5, 490, 64,64)
+pet=dog(True,300,490,80,70,man.x,man.y,1000)
 goblin = enemy(460, 285, 64, 64, 925)
 shootLoop=0
 bullets = []
