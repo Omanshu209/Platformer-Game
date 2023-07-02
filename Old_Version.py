@@ -6,26 +6,26 @@ win = pygame.display.set_mode((1000,700))
 
 pygame.display.set_caption("Game!")
 
-walkRight = [pygame.image.load('R1.png'), pygame.image.load('R2.png'), pygame.image.load('R3.png'), pygame.image.load('R4.png'), pygame.image.load('R5.png'), pygame.image.load('R6.png'), pygame.image.load('R7.png'), pygame.image.load('R8.png'), pygame.image.load('R9.png')]
+walkRight = [pygame.image.load('assets/R1.png'), pygame.image.load('assets/R2.png'), pygame.image.load('assets/R3.png'), pygame.image.load('assets/R4.png'), pygame.image.load('assets/R5.png'), pygame.image.load('assets/R6.png'), pygame.image.load('assets/R7.png'), pygame.image.load('assets/R8.png'), pygame.image.load('assets/R9.png')]
 
-walkLeft = [pygame.image.load('L1.png'), pygame.image.load('L2.png'), pygame.image.load('L3.png'), pygame.image.load('L4.png'), pygame.image.load('L5.png'), pygame.image.load('L6.png'), pygame.image.load('L7.png'), pygame.image.load('L8.png'), pygame.image.load('L9.png')]
+walkLeft = [pygame.image.load('assets/L1.png'), pygame.image.load('assets/L2.png'), pygame.image.load('assets/L3.png'), pygame.image.load('assets/L4.png'), pygame.image.load('assets/L5.png'), pygame.image.load('assets/L6.png'), pygame.image.load('assets/L7.png'), pygame.image.load('assets/L8.png'), pygame.image.load('assets/L9.png')]
 
-bg = pygame.image.load('bg.jpeg')
-block=pygame.image.load("block.jpeg")
+bg = pygame.image.load('assets/bg.jpeg')
+block=pygame.image.load("assets/block.jpeg")
 blockM=pygame.transform.scale(block,(50,50))
-block2=pygame.image.load("block2.jpeg")
+block2=pygame.image.load("assets/block2.jpeg")
 block2M=pygame.transform.scale(block2,(50,50))
 bgA=pygame.transform.scale(bg,(1000,700))
-char = pygame.image.load('standing.png')
-p1=pygame.image.load("portal1.png")
+char = pygame.image.load('assets/standing.png')
+p1=pygame.image.load("assets/portal1.png")
 p1A=pygame.transform.scale(p1,(50,100))
 clock = pygame.time.Clock()
-grass=pygame.image.load("grass.png")
-grassB=pygame.image.load("grass2.png")
+grass=pygame.image.load("assets/grass.png")
+grassB=pygame.image.load("assets/grass2.png")
 grass2=pygame.transform.scale(grassB,(250,100))
 grass1=pygame.transform.scale(grass,(300,80))
 grass3=pygame.transform.scale(grassB,(520,210))
-stscreenn=pygame.image.load("Starting.jpeg")
+stscreenn=pygame.image.load("assets/Starting.jpeg")
 stscreen=pygame.transform.scale(stscreenn,(1000,700))
 
 class player(object):
@@ -95,8 +95,8 @@ class projectile(object):
 
 
 class enemy(object):
-    walkRight = [pygame.image.load('R1E.png'), pygame.image.load('R2E.png'), pygame.image.load('R3E.png'), pygame.image.load('R4E.png'), pygame.image.load('R5E.png'), pygame.image.load('R6E.png'), pygame.image.load('R7E.png'), pygame.image.load('R8E.png'), pygame.image.load('R9E.png'), pygame.image.load('R10E.png'), pygame.image.load('R11E.png')]
-    walkLeft = [pygame.image.load('L1E.png'), pygame.image.load('L2E.png'), pygame.image.load('L3E.png'), pygame.image.load('L4E.png'), pygame.image.load('L5E.png'), pygame.image.load('L6E.png'), pygame.image.load('L7E.png'), pygame.image.load('L8E.png'), pygame.image.load('L9E.png'), pygame.image.load('L10E.png'), pygame.image.load('L11E.png')]
+    walkRight = [pygame.image.load('assets/R1E.png'), pygame.image.load('assets/R2E.png'), pygame.image.load('assets/R3E.png'), pygame.image.load('assets/R4E.png'), pygame.image.load('assets/R5E.png'), pygame.image.load('assets/R6E.png'), pygame.image.load('assets/R7E.png'), pygame.image.load('assets/R8E.png'), pygame.image.load('assets/R9E.png'), pygame.image.load('assets/R10E.png'), pygame.image.load('assets/R11E.png')]
+    walkLeft = [pygame.image.load('assets/L1E.png'), pygame.image.load('assets/L2E.png'), pygame.image.load('assets/L3E.png'), pygame.image.load('assets/L4E.png'), pygame.image.load('assets/L5E.png'), pygame.image.load('assets/L6E.png'), pygame.image.load('assets/L7E.png'), pygame.image.load('assets/L8E.png'), pygame.image.load('assets/L9E.png'), pygame.image.load('assets/L10E.png'), pygame.image.load('assets/L11E.png')]
 
     def __init__(self, x, y, width, height, end):
         self.x = x
