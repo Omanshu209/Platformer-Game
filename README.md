@@ -11,7 +11,7 @@ This code requires Python 3 and the Pygame library to be installed.
 
 ### Pygame can be installed through the terminal using pip by the following code:
 ```
-pip install pygame
+pip install pygame==2.0.1
 ```
 
 ## How to Run
