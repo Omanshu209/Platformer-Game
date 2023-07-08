@@ -16,9 +16,9 @@ pip install pygame==2.0.1
 
 ## How to Run
 
-To run the game, simply run the Python script PlatformerGame_code_ProductionPhase.py or run the following command in the terminal:
+To run the game, simply run the Python script `main.py` or run the following command in the terminal:
 ```
-python3 PlatformerGame_code_ProductionPhase.py
+python3 main.py
 ```
 
 ## How to Play
